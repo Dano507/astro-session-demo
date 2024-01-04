@@ -1,6 +1,6 @@
 # Synopsis
-astro-sessions is a demonstration of server-side session
-management in an astro SSR servers.
+astro-session-demo is a demonstration of server-side session
+management in an astro SSR server.
 
 It's purpose is the same as 
 [express-session](https://www.npmjs.com/package/express-session), 
@@ -100,7 +100,8 @@ API, or "plugin" as I have been referencing them.
 Also, I learned what "factory" means in programming terms and
 implemented one in my project to return the correct database
 wrapper plugins based on a string. I felt that it would be 
-cleaner to separate this code from the session management code.
+cleaner this way, separating it code from the session
+management code.
 
 ## SQLite
 With such a small database size (only storing ~<10 entries at 
@@ -110,4 +111,4 @@ the request time indicator in the AstroJS console output.
 
 ## Summary
 I overengineered a simple counter, learning fundemental skills
-about TypeScript, and code modularity along the way.
+about TypeScript and code modularity along the way.
