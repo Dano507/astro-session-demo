@@ -1,0 +1,17 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Counter from '../components/Counter.svelte';
+
+// The following line was causing trouble with typescript,
+// but we know that "session" exists on locals because our
+// middleware will always declare it
+//@ts-ignore
+let count = Number(Astro.locals.session.data.count)
+---
+
+<Layout title="Welcome to Astro.">
+  <Counter count={count} client:load />
+</Layout>
+
+<style>
+</style>

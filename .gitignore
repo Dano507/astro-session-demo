@@ -1,0 +1,10 @@
+# system
+.astro/
+node_modules/
+dist/
+pnpm-lock.yaml
+
+# sensitive
+/certs/
+/database.*
+
