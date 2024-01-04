@@ -27,7 +27,7 @@ GitHub publish date: 2024/1/4
 ## Steps
 Firstly, clone this repository
 ```sh
-git clone https://github.com/Dano507/astro-sessions
+git clone https://github.com/Dano507/astro-session-demo
 ```
 Navigate to the project folder, and install dependencies
 ```sh
