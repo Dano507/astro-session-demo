@@ -28,7 +28,7 @@
 
 
 <div class="root">
-  <h1>{count}</h1>
+  <p>{count}</p>
   <button on:click={()=>updateCount()}>Add One!</button>
 </div>
 
@@ -39,6 +39,10 @@
     flex-direction: column;
   }
 
+  p {
+    font-size: 2rem;
+  }
+  
   button {
     width: 100px;
     height: 100px;

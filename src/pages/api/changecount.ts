@@ -1,8 +1,5 @@
 import { Session } from '../../sessions/main'
 
-export async function GET({ params, request }) {
-  return new Response("HELLO")
-}
 
 export async function POST({ cookies, request }) {
   const sessionID = cookies.get("session").value
@@ -11,7 +8,7 @@ export async function POST({ cookies, request }) {
   if (!body.value) {
     return new Response(
       JSON.stringify({
-        error: "Must Provide 'count' field in request"
+        error: "Must Provide 'value' field in request"
       }),
       { status: 400 }
     )

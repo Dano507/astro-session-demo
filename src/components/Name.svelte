@@ -1,17 +1,46 @@
 <script>
-  // THIS COMPONENT IS UNFINISHED
-  let nameText;
+  export let name
+  let nameInput = ""
+  
+  if (name != null) {
+    name = `Welcome, ${name}`
+  }
 
-  const submitHandler = (e) => {
-    console.log(nameText, e)
+
+  const submitToServer = async (newName) => {
+    const res = await fetch("/api/changename", {
+      method: "POST",
+      body: JSON.stringify({ value: newName })
+    }) 
+    if (res.status !== 200) {
+      throw new Error("Received non 200 HTTP response")
+    }
+    return res
+  }
+
+  const inputHandler = async (e) => {    
+    name = "[Loading...]"
+    try {
+      await submitToServer(nameInput)
+      name = `Welcome, ${nameInput}`
+      nameInput = ""
+    }
+    catch {
+      name = "[Network Error]"
+      nameInput = ""
+    }
   }
 </script>
 
 
 
-<form class="root" on:submit={submitHandler}>
-  <input bind:value={nameText} type="text">
-</form>
+<div class="root">
+  <p>{name ? name : "[no name]"}</p>
+  <input bind:value={nameInput} 
+    on:keydown={(e) => {if (e.key === "Enter") inputHandler()}}
+    type="text" placeholder="What's your name?"
+  >
+</div>
 
 <style>
   .root {
@@ -19,5 +48,15 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+  }
+
+  p {
+    font-size: 2rem;
+  }
+
+  input {
+    margin-top: 0.5rem;
+    padding: 8px;
+    font-size: 14px;
   }
 </style>
