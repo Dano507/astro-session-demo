@@ -46,7 +46,7 @@ even if the browser closes.
 
 
 # Future Improvements
-- [ ] Implement unfinished "Name" component
+- [x] Implement unfinished "Name" component
   - More than just a counter would be nice
 
 - [ ] Add tests
